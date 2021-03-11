@@ -10,7 +10,6 @@ def app_specific_action(locust):
     add_comment_trigger_outbound_notification(locust)
 
 
-@jira_measure("locust_edit_issue_to_trigger_outbound_notification")
 def edit_issue_to_trigger_outbound_notification(locust):
     params = EditIssue()
     issue_id = 2013911
@@ -82,7 +81,6 @@ def edit_issue_to_trigger_outbound_notification(locust):
     edit_issue_save_edit()
 
 
-@jira_measure("locust_add_comment_trigger_outbound_notification")
 def add_comment_trigger_outbound_notification(locust):
     params = AddComment()
     issue_id = 2013912

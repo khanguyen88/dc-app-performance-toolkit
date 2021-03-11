@@ -88,7 +88,7 @@ class CreateIssue(BaseResource):
         atl_token = issue_body_dict['atl_token']
         form_token = issue_body_dict['form_token']
         issue_type = issue_body_dict['issue_type']
-        resolution_done = issue_body_dict['resolution_done']
+        resolution_done = issue_body_dict['resolution_done'] or '10030'
         fields_to_retain = issue_body_dict['fields_to_retain']
         custom_fields_to_retain = issue_body_dict['custom_fields_to_retain']
 
