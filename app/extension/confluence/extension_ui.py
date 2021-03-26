@@ -8,7 +8,7 @@ from util.conf import CONFLUENCE_SETTINGS
 def app_specific_action(webdriver, datasets):
     page = BasePage(webdriver)
 
-    @print_timing("import_gravatar")
+    @print_timing("gravatar:import_gravatar")
     def manual_import_gravatar():
         page.go_to_url(f"{CONFLUENCE_SETTINGS.server_url}/users/profile/editmyprofilepicture.action")
         page.wait_until_visible((By.ID, "gravatar-importer-button"))  # Wait for title field visible
