@@ -26,7 +26,7 @@ def import_mpp(webdriver, datasets):
     app_specific_user_login()
 
     @print_timing("import_mpp:do_import_wedding_file")
-    def measure():
+    def do_import():
         page.go_to_url(f"{JIRA_SETTINGS.server_url}/secure/ImportMpp!default.jspa")
 
         page.wait_until_visible((By.ID, "mppFile"))
@@ -44,6 +44,17 @@ def import_mpp(webdriver, datasets):
 
         page.wait_until_visible((By.ID, "submitBtn"))
         page.get_element((By.ID, "submitBtn")).click()
+    do_import()
 
-    measure()
+    @print_timing("export_mpp:do_export_structure")
+    def do_export():
+        page.go_to_url(f"{JIRA_SETTINGS.server_url}/secure/ExportMspdi!default.jspa")
+
+        page.wait_until_visible((By.ID, "structure-input"))
+
+        page.get_element((By.ID, "structure")).send_keys("EXPORT")
+        page.get_element((By.ID, "aui-uid-0-0")).click()
+
+        page.get_element((By.CSS_SELECTOR, "#mpp2jira-form input[type='submit']")).click()
+    do_export()
 
