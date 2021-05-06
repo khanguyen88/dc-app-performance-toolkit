@@ -60,8 +60,8 @@ Add custom actions anywhere between login and log out action. Move this to a dif
 Write your custom selenium scripts in `app/extension/jira/extension_ui.py`.
 Refer to `app/selenium_ui/jira/modules.py` for examples.
 """
-def test_1_selenium_custom_action(jira_webdriver, jira_datasets, jira_screen_shots):
-    extension_ui.navigate_to_import_screen(jira_webdriver, jira_datasets)
+def test_1_import_mpp(jira_webdriver, jira_datasets, jira_screen_shots):
+    extension_ui.import_mpp(jira_webdriver, jira_datasets)
 
 
 # this action should be the last one
